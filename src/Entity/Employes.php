@@ -39,12 +39,6 @@ class Employes
     #[ORM\Column(type: 'date')]
     private $datedenaissance;
 
-    #[ORM\ManyToOne(targetEntity: Client::class, inversedBy: 'employes')]
-    private $client;
-
-    #[ORM\ManyToOne(targetEntity: Service::class, inversedBy: 'employes')]
-    private $service;
-
     public function getId(): ?int
     {
         return $this->id;
