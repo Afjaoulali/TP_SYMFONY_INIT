@@ -1,0 +1,56 @@
+{% extends "bases.html.twig" %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="">
+{% endblock %}
+
+{% block main %}
+
+	<div class="container">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Prénom</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Téléphone</th>
+					<th scope="col">Email</th>
+					<th scope="col">Adresse</th>
+					<th scope="col">Salaire</th>
+					<th scope="col">Date de naissance</th>
+					<th scope="col">Option</th>
+				</tr>
+			</thead>
+			{% for employee in employes %}
+				<tbody>
+					<tr>
+						<td scope="row">{{ employee.id }}</td>
+						<td scope="row">{{ employee.prenom }}</td>
+						<td scope="row">
+							<a href="{{ path('employee_show', {'id' : employee.id}) }}">{{ employee.nom }}</td>
+						</td>
+						<td scope="row">{{ employee.telephone }}</td>
+						<td scope="row">{{ employee.email }}</td>
+						<td scope="row">{{ employee.adresse }}</td>
+						<td scope="row">{{ employee.salaire }}</td>
+						<td scope="row">{{employee.datedenaissance|date("m/d/Y") }}</td>
+						<td>
+							<a href="{{ path('employee_update', {'id' : employee.id}) }}">
+								<i class="fa-solid fa-pen"></i>
+							</a>
+							<a href=" {{ path('delete_employee', {'id' : employee.id}) }}">
+								<i class="fa-solid fa-trash"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+
+		</div>
+		<div>
+			<a href="{{ path('create_employee')}}">Créer un compte</a>
+
+		</div>
+
+	{% endblock %}

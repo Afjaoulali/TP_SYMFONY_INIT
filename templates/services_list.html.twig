@@ -1,0 +1,48 @@
+{% extends "bases.html.twig" %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="">
+{% endblock %}
+
+{% block main %}
+
+	<div class="container">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Bureau</th>
+					<th scope="col">Etage</th>
+					<th scope="col">Option</th>
+				</tr>
+			</thead>
+			{% for service in services %}
+				<tbody>
+					<tr>
+						<td scope="row">{{ service.id }}</td>
+						<td scope="row">
+							<a href="{{ path('service_show', {'id' : service.id}) }}">{{ service.name }}</td>
+						</td>
+						<td scope="row">{{ service.bureau }}</td>
+						<td scope="row">{{ service.etage }}</td>
+						<td>
+							<a href="{{ path('service_update', {'id' : service.id}) }}">
+								<i class="fa-solid fa-pen"></i>
+							</a>
+							<a href=" {{ path('delete_service', {'id' : service.id}) }}">
+								<i class="fa-solid fa-trash"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+
+		</div>
+		<div>
+			<a href="{{ path('create_service')}}">Créer un service</a>
+
+		</div>
+
+	{% endblock %}

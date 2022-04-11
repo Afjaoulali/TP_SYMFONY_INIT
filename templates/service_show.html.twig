@@ -1,0 +1,23 @@
+{% extends "bases.html.twig" %}
+
+{% block main %}
+	<table class="table container">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Name</th>
+				<th scope="col">Bureau</th>
+				<th scope="col">Etage</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td scope="row">{{ service.id }}</td>
+				<td scope="row">{{ service.name }}</td>
+				<td scope="row">{{ service.bureau }}</td>
+				<td scope="row">{{ service.etage }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+{% endblock %}
