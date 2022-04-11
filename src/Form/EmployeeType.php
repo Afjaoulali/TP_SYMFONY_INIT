@@ -24,14 +24,6 @@ class EmployeeType extends AbstractType
             ->add('poste')
             ->add('salaire')
             ->add('datedenaissance')
-            ->add('client', EntityType::class, [
-                'class' => Client::class,
-                'choice_label' => 'name'
-            ])
-            ->add('service', EntityType::class, [
-                'class' => Service::class,
-                'choice_label' => 'name'
-            ])
             ->add('Enregistrer', SubmitType::class);
         ;
     }
